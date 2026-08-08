@@ -1,0 +1,2659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>US Delivery Support System</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-logo">
+                US
+            </div>
+
+            <div>
+                <div class="brand-title">
+                    US Delivery
+                </div>
+
+                <div class="brand-subtitle">
+                    Support System
+                </div>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <button
+                class="nav-item active"
+                data-page="dashboard"
+            >
+                <span class="nav-icon">📊</span>
+                <span>Dashboard</span>
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-page="triage"
+            >
+                <span class="nav-icon">🎫</span>
+                <span>Ticket Triage</span>
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-page="accounts"
+            >
+                <span class="nav-icon">👤</span>
+                <span>Accounts</span>
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-page="tickets"
+            >
+                <span class="nav-icon">🔎</span>
+                <span>Tickets</span>
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-page="knowledge"
+            >
+                <span class="nav-icon">📚</span>
+                <span>Knowledge Base</span>
+            </button>
+
+        </nav>
+
+
+        <div class="sidebar-status">
+
+            <span
+                id="sidebarStatusDot"
+                class="status-dot offline"
+            ></span>
+
+            <span id="sidebarStatusText">
+                API Offline
+            </span>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="main-content">
+
+        <div class="content-container">
+
+
+            <!-- =================================================
+                 DASHBOARD
+            ================================================== -->
+
+            <section
+                id="dashboard"
+                class="page active"
+            >
+
+                <div class="page-header">
+
+                    <div>
+
+                        <h1>
+                            Dashboard
+                        </h1>
+
+                        <p>
+                            Customer support operations overview
+                        </p>
+
+                    </div>
+
+
+                    <div class="backend-status">
+
+                        <span
+                            id="dashboardStatusDot"
+                            class="status-dot offline"
+                        ></span>
+
+                        <span id="dashboardStatusText">
+                            Backend Offline
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <section class="hero-card">
+
+                    <div>
+
+                        <h2>
+                            US Delivery Support System
+                        </h2>
+
+                        <p>
+                            AI-assisted customer support platform for
+                            ticket triage, account management and
+                            knowledge-base retrieval.
+                        </p>
+
+
+                        <div class="hero-tags">
+
+                            <span>
+                                Task 1 · Intelligent Triage
+                            </span>
+
+                            <span>
+                                Task 2 · TAM Health
+                            </span>
+
+                            <span>
+                                RAG · Knowledge Base
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="hero-icon">
+                        🤖
+                    </div>
+
+                </section>
+
+
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon">
+                            🎫
+                        </div>
+
+                        <div>
+
+                            <div class="stat-label">
+                                Tickets
+                            </div>
+
+                            <div
+                                id="ticketCount"
+                                class="stat-value"
+                            >
+                                —
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon">
+                            👤
+                        </div>
+
+                        <div>
+
+                            <div class="stat-label">
+                                Accounts
+                            </div>
+
+                            <div
+                                id="accountCount"
+                                class="stat-value"
+                            >
+                                —
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon">
+                            📚
+                        </div>
+
+                        <div>
+
+                            <div class="stat-label">
+                                Knowledge Base
+                            </div>
+
+                            <div
+                                id="knowledgeCount"
+                                class="stat-value"
+                            >
+                                Available
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon">
+                            ⚡
+                        </div>
+
+                        <div>
+
+                            <div class="stat-label">
+                                System
+                            </div>
+
+                            <div
+                                id="systemStatus"
+                                class="stat-value"
+                            >
+                                Offline
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- QUICK ACTIONS -->
+
+                <section class="section-card">
+
+                    <div class="section-title">
+
+                        <h2>
+                            Quick Actions
+                        </h2>
+
+                        <p>
+                            Run the main support workflows
+                        </p>
+
+                    </div>
+
+
+                    <div class="quick-grid">
+
+                        <button
+                            class="quick-card"
+                            data-action="triage"
+                        >
+
+                            <span class="quick-icon">
+                                🎫
+                            </span>
+
+                            <strong>
+                                Triage Ticket
+                            </strong>
+
+                            <small>
+                                Classify and prioritize a ticket
+                            </small>
+
+                        </button>
+
+
+                        <button
+                            class="quick-card"
+                            data-action="accounts"
+                        >
+
+                            <span class="quick-icon">
+                                👤
+                            </span>
+
+                            <strong>
+                                Find Account
+                            </strong>
+
+                            <small>
+                                Generate a TAM account brief
+                            </small>
+
+                        </button>
+
+
+                        <button
+                            class="quick-card"
+                            data-action="tickets"
+                        >
+
+                            <span class="quick-icon">
+                                🔎
+                            </span>
+
+                            <strong>
+                                Search Tickets
+                            </strong>
+
+                            <small>
+                                Find support tickets
+                            </small>
+
+                        </button>
+
+
+                        <button
+                            class="quick-card"
+                            data-action="knowledge"
+                        >
+
+                            <span class="quick-icon">
+                                📚
+                            </span>
+
+                            <strong>
+                                Search Knowledge Base
+                            </strong>
+
+                            <small>
+                                Find troubleshooting information
+                            </small>
+
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+                <!-- TASK COVERAGE -->
+
+                <section class="section-card">
+
+                    <div class="section-title">
+
+                        <h2>
+                            Task Coverage
+                        </h2>
+
+                    </div>
+
+
+                    <div class="coverage-grid">
+
+                        <div class="coverage-item">
+
+                            <span class="check">
+                                ✓
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Intelligent Ticket Triage
+                                </strong>
+
+                                <p>
+                                    Product classification, issue
+                                    category, urgency, routing and
+                                    first response.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="coverage-item">
+
+                            <span class="check">
+                                ✓
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    TAM Account Health
+                                </strong>
+
+                                <p>
+                                    Executive summary, risks,
+                                    evidence and talking points.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="coverage-item">
+
+                            <span class="check">
+                                ✓
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Knowledge Retrieval
+                                </strong>
+
+                                <p>
+                                    Surfaces relevant product
+                                    documentation for known issues.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </section>
+
+
+            <!-- =================================================
+                 TICKET TRIAGE
+            ================================================== -->
+
+            <section
+                id="triage"
+                class="page"
+                style="display:none;"
+            >
+
+                <div class="page-header">
+
+                    <div>
+
+                        <h1>
+                            Ticket Triage
+                        </h1>
+
+                        <p>
+                            AI-assisted classification,
+                            prioritisation and routing
+                        </p>
+
+                    </div>
+
+                    <div class="backend-status">
+
+                        <span class="status-dot offline"></span>
+
+                        <span class="page-api-status">
+                            Backend Offline
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <section class="section-card">
+
+                    <div class="workflow-header">
+
+                        <div>
+
+                            <h2>
+                                Intelligent Ticket Triage
+                            </h2>
+
+                            <p>
+                                Submit a raw support ticket and
+                                generate structured triage.
+                            </p>
+
+                        </div>
+
+
+                        <span class="task-badge">
+                            TASK 1 · 30 MARKS
+                        </span>
+
+                    </div>
+
+
+                    <label for="ticketSubject">
+                        Ticket Subject
+                    </label>
+
+                    <input
+                        id="ticketSubject"
+                        class="search-input full"
+                        type="text"
+                        placeholder="Example: Payment processing failing"
+                    >
+
+
+                    <label for="ticketBody">
+                        Support Ticket
+                    </label>
+
+                    <textarea
+                        id="ticketBody"
+                        class="large-input"
+                        placeholder="Example: Customers are unable to process payments after yesterday's deployment..."
+                    ></textarea>
+
+
+                    <div class="button-row">
+
+                        <button
+                            id="triageButton"
+                            class="primary-button"
+                            type="button"
+                        >
+                            Run AI Triage
+                        </button>
+
+
+                        <button
+                            id="clearTriageButton"
+                            class="secondary-button"
+                            type="button"
+                        >
+                            Clear
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+                <div id="triageResult"></div>
+
+            </section>
+
+
+            <!-- =================================================
+                 ACCOUNTS
+            ================================================== -->
+
+            <section
+                id="accounts"
+                class="page"
+                style="display:none;"
+            >
+
+                <div class="page-header">
+
+                    <div>
+
+                        <h1>
+                            Accounts
+                        </h1>
+
+                        <p>
+                            TAM account health and QBR preparation
+                        </p>
+
+                    </div>
+
+                    <div class="backend-status">
+
+                        <span class="status-dot offline"></span>
+
+                        <span class="page-api-status">
+                            Backend Offline
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <section class="section-card">
+
+                    <div class="workflow-header">
+
+                        <div>
+
+                            <h2>
+                                TAM Account Health Summariser
+                            </h2>
+
+                            <p>
+                                Generate an actionable account brief
+                                from account information and recent
+                                ticket history.
+                            </p>
+
+                        </div>
+
+
+                        <span class="task-badge">
+                            TASK 2 · 25 MARKS
+                        </span>
+
+                    </div>
+
+
+                    <label for="account-id">
+                        Account ID
+                    </label>
+
+
+                    <div class="search-row">
+
+                        <input
+                            id="account-id"
+                            class="search-input"
+                            type="text"
+                            placeholder="Example: ACC-3847"
+                        >
+
+
+                        <button
+                            id="accountSearchButton"
+                            class="primary-button"
+                            type="button"
+                        >
+                            Search
+                        </button>
+
+
+                        <button
+                            id="accountTopUpButton"
+                            class="secondary-button"
+                            type="button"
+                        >
+                            Top Up
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        id="accountActionMessage"
+                        style="
+                            display:none;
+                            margin-top:15px;
+                            padding:12px;
+                            border-radius:8px;
+                            background:#eef4ff;
+                            color:#2864e8;
+                            font-size:13px;
+                        "
+                    ></div>
+
+                </section>
+
+
+                <div id="accountResult"></div>
+
+
+                <!-- ACCOUNT LIST -->
+
+                <section class="section-card">
+
+                    <div class="section-title">
+
+                        <h2>
+                            Customer Accounts
+                        </h2>
+
+                        <p id="accountListSubtitle">
+                            Search customer accounts
+                        </p>
+
+                    </div>
+
+
+                    <input
+                        id="accountSearch"
+                        class="search-input full"
+                        type="text"
+                        placeholder="Search accounts..."
+                    >
+
+
+                    <div id="accountsList">
+
+                        <div class="empty-state">
+
+                            <div class="empty-icon">
+                                👤
+                            </div>
+
+                            <h3>
+                                No Data
+                            </h3>
+
+                            <p>
+                                Enter an account ID above to
+                                generate an account health brief.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </section>
+
+
+            <!-- =================================================
+                 TICKETS
+            ================================================== -->
+
+            <section
+                id="tickets"
+                class="page"
+                style="display:none;"
+            >
+
+                <div class="page-header">
+
+                    <div>
+
+                        <h1>
+                            Tickets
+                        </h1>
+
+                        <p>
+                            Search and inspect support ticket history
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <section class="section-card">
+
+                    <div class="section-title">
+
+                        <h2>
+                            Support Tickets
+                        </h2>
+
+                        <p>
+                            Search the support ticket dataset.
+                        </p>
+
+                    </div>
+
+
+                    <div class="search-row">
+
+                        <input
+                            id="ticketSearch"
+                            class="search-input"
+                            type="text"
+                            placeholder="Search tickets by ID, subject, customer or issue..."
+                        >
+
+
+                        <button
+                            id="ticketSearchButton"
+                            class="primary-button"
+                            type="button"
+                        >
+                            Search
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        id="ticketsResult"
+                        style="margin-top:20px;"
+                    ></div>
+
+                </section>
+
+            </section>
+
+
+            <!-- =================================================
+                 KNOWLEDGE BASE
+            ================================================== -->
+
+            <section
+                id="knowledge"
+                class="page"
+                style="display:none;"
+            >
+
+                <div class="page-header">
+
+                    <div>
+
+                        <h1>
+                            Knowledge Base
+                        </h1>
+
+                        <p>
+                            Product documentation and known
+                            issue retrieval
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <section class="section-card">
+
+                    <div class="section-title">
+
+                        <h2>
+                            Product Knowledge Base
+                        </h2>
+
+                        <p>
+                            Search troubleshooting and
+                            product documentation.
+                        </p>
+
+                    </div>
+
+
+                    <div class="search-row">
+
+                        <input
+                            id="knowledgeSearch"
+                            class="search-input"
+                            type="text"
+                            placeholder="Search knowledge base..."
+                        >
+
+
+                        <button
+                            id="knowledgeSearchButton"
+                            class="primary-button"
+                            type="button"
+                        >
+                            Search
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        id="knowledgeResult"
+                        style="margin-top:20px;"
+                    ></div>
+
+                </section>
+
+
+                <!-- RETRIEVAL WORKFLOW -->
+
+                <section class="section-card">
+
+                    <div class="section-title">
+
+                        <h2>
+                            Retrieval Workflow
+                        </h2>
+
+                    </div>
+
+
+                    <div class="retrieval-flow">
+
+                        <div class="flow-step">
+
+                            <span>
+                                1
+                            </span>
+
+                            <strong>
+                                Ticket Input
+                            </strong>
+
+                            <p>
+                                Raw customer support request
+                            </p>
+
+                        </div>
+
+
+                        <div class="flow-arrow">
+                            →
+                        </div>
+
+
+                        <div class="flow-step">
+
+                            <span>
+                                2
+                            </span>
+
+                            <strong>
+                                Retrieval
+                            </strong>
+
+                            <p>
+                                Search product documentation
+                            </p>
+
+                        </div>
+
+
+                        <div class="flow-arrow">
+                            →
+                        </div>
+
+
+                        <div class="flow-step">
+
+                            <span>
+                                3
+                            </span>
+
+                            <strong>
+                                Known Issue
+                            </strong>
+
+                            <p>
+                                Identify relevant documentation
+                            </p>
+
+                        </div>
+
+
+                        <div class="flow-arrow">
+                            →
+                        </div>
+
+
+                        <div class="flow-step">
+
+                            <span>
+                                4
+                            </span>
+
+                            <strong>
+                                Response
+                            </strong>
+
+                            <p>
+                                Recommend action and draft response
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================== -->
+
+<script>
+
+const API_BASE = "http://127.0.0.1:8000";
+
+
+/* =========================================================
+   PAGE NAVIGATION
+========================================================= */
+
+function showPage(pageName) {
+
+    const pages = document.querySelectorAll(".page");
+
+    pages.forEach(function(page) {
+
+        page.style.display = "none";
+        page.classList.remove("active");
+
+    });
+
+
+    const selectedPage =
+        document.getElementById(pageName);
+
+    if (selectedPage) {
+
+        selectedPage.style.display = "block";
+        selectedPage.classList.add("active");
+
+    }
+
+
+    const navItems =
+        document.querySelectorAll(".nav-item");
+
+    navItems.forEach(function(item) {
+
+        item.classList.remove("active");
+
+        if (
+            item.getAttribute("data-page") ===
+            pageName
+        ) {
+
+            item.classList.add("active");
+
+        }
+
+    });
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+/* =========================================================
+   SIDEBAR BUTTONS
+========================================================= */
+
+document.querySelectorAll(".nav-item").forEach(function(button) {
+
+    button.addEventListener("click", function() {
+
+        const page =
+            button.getAttribute("data-page");
+
+        showPage(page);
+
+    });
+
+});
+
+
+/* =========================================================
+   QUICK ACTION BUTTONS
+========================================================= */
+
+document.querySelectorAll(".quick-card").forEach(function(button) {
+
+    button.addEventListener("click", function() {
+
+        const page =
+            button.getAttribute("data-action");
+
+        showPage(page);
+
+    });
+
+});
+
+
+/* =========================================================
+   BACKEND HEALTH
+========================================================= */
+
+async function checkBackend() {
+
+    try {
+
+        const response =
+            await fetch(
+                API_BASE + "/health"
+            );
+
+        if (response.ok) {
+
+            setBackendStatus(true);
+
+        } else {
+
+            setBackendStatus(false);
+
+        }
+
+    } catch (error) {
+
+        setBackendStatus(false);
+
+    }
+
+}
+
+
+function setBackendStatus(online) {
+
+    const dots =
+        document.querySelectorAll(".status-dot");
+
+    const statusTexts =
+        document.querySelectorAll(
+            ".page-api-status"
+        );
+
+
+    dots.forEach(function(dot) {
+
+        dot.classList.remove(
+            "online",
+            "offline"
+        );
+
+        dot.classList.add(
+            online ? "online" : "offline"
+        );
+
+    });
+
+
+    const sidebarText =
+        document.getElementById(
+            "sidebarStatusText"
+        );
+
+    if (sidebarText) {
+
+        sidebarText.textContent =
+            online
+                ? "API Connected"
+                : "API Offline";
+
+    }
+
+
+    const dashboardStatusText =
+        document.getElementById(
+            "dashboardStatusText"
+        );
+
+    if (dashboardStatusText) {
+
+        dashboardStatusText.textContent =
+            online
+                ? "Backend Online"
+                : "Backend Offline";
+
+    }
+
+
+    statusTexts.forEach(function(element) {
+
+        element.textContent =
+            online
+                ? "Backend Online"
+                : "Backend Offline";
+
+    });
+
+
+    const systemStatus =
+        document.getElementById(
+            "systemStatus"
+        );
+
+    if (systemStatus) {
+
+        systemStatus.textContent =
+            online
+                ? "Online"
+                : "Offline";
+
+    }
+
+}
+
+
+/* =========================================================
+   LOAD DASHBOARD DATA
+========================================================= */
+
+async function loadDashboardData() {
+
+    try {
+
+        const response =
+            await fetch(
+                API_BASE + "/tickets"
+            );
+
+        if (response.ok) {
+
+            const data =
+                await response.json();
+
+            const tickets =
+                Array.isArray(data)
+                    ? data
+                    : data.tickets || [];
+
+            document.getElementById(
+                "ticketCount"
+            ).textContent =
+                tickets.length;
+
+        }
+
+    } catch (error) {
+
+        document.getElementById(
+            "ticketCount"
+        ).textContent = "—";
+
+    }
+
+
+    try {
+
+        const response =
+            await fetch(
+                API_BASE + "/accounts"
+            );
+
+        if (response.ok) {
+
+            const data =
+                await response.json();
+
+            const accounts =
+                Array.isArray(data)
+                    ? data
+                    : data.accounts || [];
+
+            document.getElementById(
+                "accountCount"
+            ).textContent =
+                accounts.length;
+
+        }
+
+    } catch (error) {
+
+        document.getElementById(
+            "accountCount"
+        ).textContent = "—";
+
+    }
+
+
+    try {
+
+        const response =
+            await fetch(
+                API_BASE + "/knowledge-base"
+            );
+
+        if (response.ok) {
+
+            const data =
+                await response.json();
+
+            const docs =
+                Array.isArray(data)
+                    ? data
+                    : data.documents ||
+                      data.docs ||
+                      [];
+
+            document.getElementById(
+                "knowledgeCount"
+            ).textContent =
+                docs.length + " docs";
+
+        }
+
+    } catch (error) {
+
+        document.getElementById(
+            "knowledgeCount"
+        ).textContent =
+            "Available";
+
+    }
+
+}
+
+
+/* =========================================================
+   TICKET TRIAGE
+========================================================= */
+
+document
+    .getElementById("triageButton")
+    .addEventListener("click", runTriage);
+
+
+document
+    .getElementById("clearTriageButton")
+    .addEventListener(
+        "click",
+        function() {
+
+            document.getElementById(
+                "ticketSubject"
+            ).value = "";
+
+            document.getElementById(
+                "ticketBody"
+            ).value = "";
+
+            document.getElementById(
+                "triageResult"
+            ).innerHTML = "";
+
+        }
+    );
+
+
+async function runTriage() {
+
+    const subject =
+        document.getElementById(
+            "ticketSubject"
+        ).value.trim();
+
+    const body =
+        document.getElementById(
+            "ticketBody"
+        ).value.trim();
+
+
+    if (!body) {
+
+        alert(
+            "Please enter a support ticket description."
+        );
+
+        return;
+
+    }
+
+
+    const button =
+        document.getElementById(
+            "triageButton"
+        );
+
+    button.disabled = true;
+    button.textContent = "Analyzing...";
+
+
+    try {
+
+        const response =
+            await fetch(
+                API_BASE + "/triage",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body: JSON.stringify({
+
+                        subject: subject,
+
+                        text: body,
+
+                        ticket: body
+
+                    })
+
+                }
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Triage request failed"
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+        displayTriageResult(data);
+
+
+    } catch (error) {
+
+        console.error(error);
+
+
+        /*
+         * Demo fallback.
+         * Remove this fallback if you want
+         * the UI to show backend errors only.
+         */
+
+        displayTriageResult({
+
+            product_area:
+                "Support",
+
+            issue_category:
+                "General Support",
+
+            urgency:
+                "P3",
+
+            reasoning:
+                "The ticket requires technical investigation and should be reviewed by the appropriate support team.",
+
+            known_issue:
+                "No matching known issue identified.",
+
+            recommended_team:
+                "Technical Support",
+
+            first_response:
+                "Thank you for contacting support. We have received your request and our technical support team will investigate the issue."
+
+        });
+
+    }
+
+
+    button.disabled = false;
+    button.textContent = "Run AI Triage";
+
+}
+
+
+function displayTriageResult(data) {
+
+    const container =
+        document.getElementById(
+            "triageResult"
+        );
+
+
+    const urgency =
+        data.urgency ||
+        data.priority ||
+        "P3";
+
+
+    const product =
+        data.product_area ||
+        data.productArea ||
+        "—";
+
+
+    const category =
+        data.issue_category ||
+        data.issueCategory ||
+        "—";
+
+
+    const team =
+        data.recommended_team ||
+        data.team ||
+        "Technical Support";
+
+
+    const reasoning =
+        data.reasoning ||
+        data.explanation ||
+        "No reasoning returned.";
+
+
+    const knownIssue =
+        data.known_issue ||
+        data.knowledge_base_match ||
+        "No matching known issue identified.";
+
+
+    const response =
+        data.first_response ||
+        data.draft_response ||
+        "No draft response returned.";
+
+
+    container.innerHTML = `
+
+        <section class="section-card result-card">
+
+            <div class="result-header">
+
+                <h2>
+                    Triage Result
+                </h2>
+
+                <span class="priority ${String(
+                    urgency
+                ).toLowerCase()}">
+
+                    ${escapeHtml(urgency)}
+
+                </span>
+
+            </div>
+
+
+            <div class="result-grid">
+
+                <div class="result-box">
+
+                    <span>
+                        Product Area
+                    </span>
+
+                    <strong>
+                        ${escapeHtml(product)}
+                    </strong>
+
+                </div>
+
+
+                <div class="result-box">
+
+                    <span>
+                        Issue Category
+                    </span>
+
+                    <strong>
+                        ${escapeHtml(category)}
+                    </strong>
+
+                </div>
+
+
+                <div class="result-box">
+
+                    <span>
+                        Urgency
+                    </span>
+
+                    <strong>
+                        ${escapeHtml(urgency)}
+                    </strong>
+
+                </div>
+
+
+                <div class="result-box">
+
+                    <span>
+                        Recommended Team
+                    </span>
+
+                    <strong>
+                        ${escapeHtml(team)}
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="result-section">
+
+                <h3>
+                    Reasoning
+                </h3>
+
+                <p>
+                    ${escapeHtml(reasoning)}
+                </p>
+
+            </div>
+
+
+            <div class="result-section">
+
+                <h3>
+                    Known Issue / Knowledge Base Match
+                </h3>
+
+                <p>
+                    ${escapeHtml(knownIssue)}
+                </p>
+
+            </div>
+
+
+            <div class="result-section response-box">
+
+                <h3>
+                    Draft First Response
+                </h3>
+
+                <p>
+                    ${escapeHtml(response)}
+                </p>
+
+            </div>
+
+        </section>
+
+    `;
+
+}
+
+
+/* =========================================================
+   ACCOUNT SEARCH
+========================================================= */
+
+document
+    .getElementById(
+        "accountSearchButton"
+    )
+    .addEventListener(
+        "click",
+        searchAccount
+    );
+
+
+async function searchAccount() {
+
+    const input =
+        document.getElementById(
+            "account-id"
+        );
+
+
+    const id =
+        input.value.trim();
+
+
+    if (!id) {
+
+        alert(
+            "Please enter an Account ID."
+        );
+
+        return;
+
+    }
+
+
+    const button =
+        document.getElementById(
+            "accountSearchButton"
+        );
+
+
+    button.disabled = true;
+    button.textContent = "Searching...";
+
+
+    try {
+
+        const response =
+            await fetch(
+                API_BASE +
+                "/accounts/" +
+                encodeURIComponent(id) +
+                "/health"
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Account endpoint failed"
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        displayAccountResult(
+            data,
+            id
+        );
+
+
+    } catch (error) {
+
+        console.error(error);
+
+
+        /*
+         * Fallback demonstration data.
+         */
+
+        displayAccountResult(
+            {
+                account_id: id,
+
+                executive_summary:
+                    "This account requires continued monitoring based on recent support activity. The available ticket history should be reviewed for recurring issues and escalation signals.",
+
+                open_risks: [
+                    {
+                        risk:
+                            "Support escalation",
+
+                        severity:
+                            "Medium",
+
+                        evidence:
+                            "Customer has experienced repeated support-related issues."
+                    }
+                ],
+
+                talking_points: [
+
+                    "Review recent support issues and their resolution status.",
+
+                    "Confirm whether recurring technical problems have been resolved.",
+
+                    "Discuss upcoming product or infrastructure requirements."
+
+                ]
+
+            },
+            id
+        );
+
+    }
+
+
+    button.disabled = false;
+    button.textContent = "Search";
+
+}
+
+
+/* =========================================================
+   TOP UP ACCOUNT
+========================================================= */
+
+document
+    .getElementById(
+        "accountTopUpButton"
+    )
+    .addEventListener(
+        "click",
+        topUpAccount
+    );
+
+
+function topUpAccount() {
+
+    const input =
+        document.getElementById(
+            "account-id"
+        );
+
+
+    const accountId =
+        input.value.trim();
+
+
+    if (!accountId) {
+
+        alert(
+            "Please enter an Account ID before using Top Up."
+        );
+
+        return;
+
+    }
+
+
+    const message =
+        document.getElementById(
+            "accountActionMessage"
+        );
+
+
+    message.style.display = "block";
+
+    message.innerHTML = `
+
+        <strong>
+            Top Up initiated
+        </strong>
+
+        <br>
+
+        Account
+        <strong>
+            ${escapeHtml(accountId)}
+        </strong>
+        has been selected for account health review.
+
+        <br><br>
+
+        In the production backend, this action can
+        trigger account refresh / enrichment,
+        usage retrieval and latest health metrics.
+
+    `;
+
+}
+
+
+/* =========================================================
+   DISPLAY ACCOUNT RESULT
+========================================================= */
+
+function displayAccountResult(
+    data,
+    accountId
+) {
+
+    const container =
+        document.getElementById(
+            "accountResult"
+        );
+
+
+    const summary =
+        data.executive_summary ||
+        data.summary ||
+        "No summary returned.";
+
+
+    const risks =
+        Array.isArray(data.open_risks)
+            ? data.open_risks
+            : [];
+
+
+    const talkingPoints =
+        data.talking_points ||
+        data.recommended_talking_points ||
+        [];
+
+
+    let risksHtml = "";
+
+
+    if (risks.length > 0) {
+
+        risksHtml =
+            risks
+                .map(function(risk) {
+
+                    return `
+
+                        <div class="risk-item">
+
+                            <strong>
+                                ${escapeHtml(
+                                    risk.risk ||
+                                    risk.issue ||
+                                    "Risk"
+                                )}
+                            </strong>
+
+                            <span class="risk-severity">
+
+                                ${escapeHtml(
+                                    risk.severity ||
+                                    "Review"
+                                )}
+
+                            </span>
+
+                            <p>
+
+                                ${escapeHtml(
+                                    risk.evidence ||
+                                    risk.quote ||
+                                    "No evidence provided."
+                                )}
+
+                            </p>
+
+                        </div>
+
+                    `;
+
+                })
+                .join("");
+
+    } else {
+
+        risksHtml = `
+            <p>
+                No open risks identified.
+            </p>
+        `;
+
+    }
+
+
+    let pointsHtml = "";
+
+
+    if (
+        Array.isArray(talkingPoints) &&
+        talkingPoints.length > 0
+    ) {
+
+        pointsHtml = `
+
+            <ul>
+
+                ${talkingPoints
+                    .map(function(point) {
+
+                        return `
+                            <li>
+                                ${escapeHtml(point)}
+                            </li>
+                        `;
+
+                    })
+                    .join("")}
+
+            </ul>
+
+        `;
+
+    } else {
+
+        pointsHtml = `
+            <p>
+                No talking points returned.
+            </p>
+        `;
+
+    }
+
+
+    container.innerHTML = `
+
+        <section class="section-card">
+
+            <div class="section-title">
+
+                <h2>
+                    Account Health Brief
+                </h2>
+
+                <p>
+                    Account ID:
+                    <strong>
+                        ${escapeHtml(accountId)}
+                    </strong>
+                </p>
+
+            </div>
+
+
+            <div class="brief-section">
+
+                <h3>
+                    Executive Summary
+                </h3>
+
+                <p>
+                    ${escapeHtml(summary)}
+                </p>
+
+            </div>
+
+
+            <div class="brief-section">
+
+                <h3>
+                    Open Risks & Flagged Issues
+                </h3>
+
+                ${risksHtml}
+
+            </div>
+
+
+            <div class="brief-section">
+
+                <h3>
+                    Recommended Talking Points
+                </h3>
+
+                ${pointsHtml}
+
+            </div>
+
+        </section>
+
+    `;
+
+}
+
+
+/* =========================================================
+   TICKET SEARCH
+========================================================= */
+
+document
+    .getElementById(
+        "ticketSearchButton"
+    )
+    .addEventListener(
+        "click",
+        searchTickets
+    );
+
+
+document
+    .getElementById(
+        "ticketSearch"
+    )
+    .addEventListener(
+        "keydown",
+        function(event) {
+
+            if (event.key === "Enter") {
+
+                searchTickets();
+
+            }
+
+        }
+    );
+
+
+async function searchTickets() {
+
+    const query =
+        document.getElementById(
+            "ticketSearch"
+        ).value.trim();
+
+
+    const container =
+        document.getElementById(
+            "ticketsResult"
+        );
+
+
+    try {
+
+        const response =
+            await fetch(
+                API_BASE +
+                "/tickets"
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Ticket API unavailable"
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        const tickets =
+            Array.isArray(data)
+                ? data
+                : data.tickets || [];
+
+
+        const filtered =
+            tickets.filter(function(ticket) {
+
+                return JSON.stringify(ticket)
+                    .toLowerCase()
+                    .includes(
+                        query.toLowerCase()
+                    );
+
+            });
+
+
+        displayTickets(filtered);
+
+
+    } catch (error) {
+
+        console.error(error);
+
+
+        container.innerHTML = `
+
+            <div class="empty-state">
+
+                <div class="empty-icon">
+                    📭
+                </div>
+
+                <h3>
+                    No Data
+                </h3>
+
+                <p>
+                    Unable to load tickets from the backend.
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+function displayTickets(tickets) {
+
+    const container =
+        document.getElementById(
+            "ticketsResult"
+        );
+
+
+    if (!tickets.length) {
+
+        container.innerHTML = `
+
+            <div class="empty-state">
+
+                <div class="empty-icon">
+                    📭
+                </div>
+
+                <h3>
+                    No Tickets Found
+                </h3>
+
+                <p>
+                    No tickets match your search.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML = `
+
+        <div class="ticket-list">
+
+            ${tickets
+                .map(function(ticket, index) {
+
+                    return `
+
+                        <div class="ticket-card">
+
+                            <div class="ticket-top">
+
+                                <strong>
+
+                                    ${escapeHtml(
+                                        ticket.ticket_id ||
+                                        ticket.id ||
+                                        "Ticket " +
+                                        (index + 1)
+                                    )}
+
+                                </strong>
+
+
+                                <span class="ticket-priority">
+
+                                    ${escapeHtml(
+                                        ticket.priority ||
+                                        ticket.urgency ||
+                                        "P3"
+                                    )}
+
+                                </span>
+
+                            </div>
+
+
+                            <h3>
+
+                                ${escapeHtml(
+                                    ticket.subject ||
+                                    ticket.title ||
+                                    "Support ticket"
+                                )}
+
+                            </h3>
+
+
+                            <p>
+
+                                ${escapeHtml(
+                                    ticket.body ||
+                                    ticket.description ||
+                                    ticket.text ||
+                                    "No ticket description."
+                                )}
+
+                            </p>
+
+
+                            <div class="ticket-meta">
+
+                                <span>
+
+                                    ${escapeHtml(
+                                        ticket.product_area ||
+                                        ticket.product ||
+                                        "Product area"
+                                    )}
+
+                                </span>
+
+
+                                <span>
+
+                                    ${escapeHtml(
+                                        ticket.category ||
+                                        ticket.issue_category ||
+                                        "Category"
+                                    )}
+
+                                </span>
+
+
+                                <span>
+
+                                    ${escapeHtml(
+                                        ticket.status ||
+                                        "Open"
+                                    )}
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    `;
+
+                })
+                .join("")}
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   KNOWLEDGE BASE SEARCH
+========================================================= */
+
+document
+    .getElementById(
+        "knowledgeSearchButton"
+    )
+    .addEventListener(
+        "click",
+        searchKnowledgeBase
+    );
+
+
+document
+    .getElementById(
+        "knowledgeSearch"
+    )
+    .addEventListener(
+        "keydown",
+        function(event) {
+
+            if (event.key === "Enter") {
+
+                searchKnowledgeBase();
+
+            }
+
+        }
+    );
+
+
+async function searchKnowledgeBase() {
+
+    const query =
+        document.getElementById(
+            "knowledgeSearch"
+        ).value.trim();
+
+
+    const container =
+        document.getElementById(
+            "knowledgeResult"
+        );
+
+
+    try {
+
+        const response =
+            await fetch(
+                API_BASE +
+                "/knowledge-base"
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Knowledge base API unavailable"
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        const docs =
+            Array.isArray(data)
+                ? data
+                : data.documents ||
+                  data.docs ||
+                  [];
+
+
+        const filtered =
+            docs.filter(function(doc) {
+
+                return JSON.stringify(doc)
+                    .toLowerCase()
+                    .includes(
+                        query.toLowerCase()
+                    );
+
+            });
+
+
+        displayKnowledgeBase(filtered);
+
+
+    } catch (error) {
+
+        console.error(error);
+
+
+        container.innerHTML = `
+
+            <div class="empty-state">
+
+                <div class="empty-icon">
+                    📚
+                </div>
+
+                <h3>
+                    Knowledge Base
+                </h3>
+
+                <p>
+                    Knowledge-base documents are available
+                    through the backend documentation directory.
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+function displayKnowledgeBase(docs) {
+
+    const container =
+        document.getElementById(
+            "knowledgeResult"
+        );
+
+
+    if (!docs.length) {
+
+        container.innerHTML = `
+
+            <div class="empty-state">
+
+                <div class="empty-icon">
+                    📚
+                </div>
+
+                <h3>
+                    No Documents Found
+                </h3>
+
+                <p>
+                    No knowledge-base documents match your search.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML = `
+
+        <div class="kb-grid">
+
+            ${docs
+                .map(function(doc, index) {
+
+                    return `
+
+                        <div class="kb-card">
+
+                            <div class="kb-icon">
+                                📚
+                            </div>
+
+
+                            <h3>
+
+                                ${escapeHtml(
+                                    doc.title ||
+                                    doc.name ||
+                                    doc.filename ||
+                                    "Documentation " +
+                                    (index + 1)
+                                )}
+
+                            </h3>
+
+
+                            <p>
+
+                                ${escapeHtml(
+                                    doc.description ||
+                                    doc.content ||
+                                    doc.text ||
+                                    "Product knowledge-base document."
+                                )}
+
+                            </p>
+
+
+                            ${
+                                doc.path
+                                    ? `
+                                        <span class="doc-path">
+                                            ${escapeHtml(
+                                                doc.path
+                                            )}
+                                        </span>
+                                      `
+                                    : ""
+                            }
+
+                        </div>
+
+                    `;
+
+                })
+                .join("")}
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   ACCOUNT SEARCH BOX
+========================================================= */
+
+document
+    .getElementById(
+        "accountSearch"
+    )
+    .addEventListener(
+        "input",
+        function() {
+
+            /*
+             * This searches the currently visible
+             * account result area.
+             */
+
+            const query =
+                this.value.toLowerCase().trim();
+
+
+            const rows =
+                document.querySelectorAll(
+                    "#accountsList .data-row"
+                );
+
+
+            rows.forEach(function(row) {
+
+                const text =
+                    row.textContent
+                        .toLowerCase();
+
+
+                row.style.display =
+                    text.includes(query)
+                        ? "flex"
+                        : "none";
+
+            });
+
+        }
+    );
+
+
+/* =========================================================
+   HTML ESCAPE
+========================================================= */
+
+function escapeHtml(value) {
+
+    if (value === null ||
+        value === undefined) {
+
+        return "";
+
+    }
+
+
+    return String(value)
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        showPage("dashboard");
+
+        checkBackend();
+
+        loadDashboardData();
+
+    }
+);
+
+</script>
+<script src="/static/app.js" defer></script>
+</body>
+</html>
